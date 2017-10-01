@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
 from __future__ import print_function
 
+FORCE_POOR_LINT_TO_FAIL = True
+
 import os
 import os.path
 import sys
@@ -47,6 +49,8 @@ from .__init__ import __version__
 import itertools
 
 click.disable_unicode_literals_warning = True
+
+#I'M AN EVIL COMMENT, MUAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA!
 
 try:
     from urlparse import urlparse
