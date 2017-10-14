@@ -12,13 +12,14 @@ def expect_exact(context, expected, timeout):
         # Strip color codes out of the output.
         actual = re.sub(r'\x1b\[([0-9A-Za-z;?])+[m|K]?',
                         '', context.cli.before)
-        raise Exception('Expected:\n---\n{0!r}\n---\n\nActual:\n---\n{1!r}\n---'.format(
-            expected,
-            actual))
+        raise Exception(
+            'Expected:\n---\n{0!r}\n---\n\nActual:\n---\n{1!r}\n---'
+            .format(expected, actual)
+        )
 
 
 def expect_pager(context, expected, timeout):
-    expect_exact(context, "{0}\r\n{1}{0}\r\n".format(
+    expect_exact(context, u"{0}\r\n{1}{0}\r\n".format(
         context.conf['pager_boundary'], expected), timeout=timeout)
 
 
@@ -52,6 +53,6 @@ def wait_prompt(context):
     user = context.conf['user']
     host = context.conf['host']
     dbname = context.currentdb
-    expect_exact(context, 'mysql {0}@{1}:{2}> '.format(
+    expect_exact(context, u'mysql {0}@{1}:{2}> '.format(
         user, host, dbname), timeout=5)
     context.atprompt = True
